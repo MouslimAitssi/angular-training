@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContactType } from './shared/feedback';
 
 @Component({
   selector: 'app-root',
