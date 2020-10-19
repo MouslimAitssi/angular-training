@@ -28,7 +28,6 @@
   </div>
 
   <div>
-
     <mat-list  *ngIf="dish">
     <h2>Comments</h2>
       <mat-list-item *ngFor="let com of dish.comments">
@@ -41,5 +40,9 @@
         </p>
       </mat-list-item>
     </mat-list>
+  </div>
+
+  <div [hidden]="dish">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
   </div>
 </div>
