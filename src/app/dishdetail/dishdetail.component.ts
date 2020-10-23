@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DishService } from '../services/dish.service';
 import { Dish } from '../shared/dish';
 import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
+import { FormGroup } from '@angular/forms';
+import { Feedback } from '../shared/feedback';
 
 @Component({
   selector: 'app-dishdetail',
@@ -16,6 +18,29 @@ export class DishdetailComponent implements OnInit {
   dishIds: string[];
   prev: string;
   next: string;
+
+  @ViewChild('fform') feedbackFormDirective;
+
+  feedbackForm: FormGroup;
+  feedback: Feedback;
+
+  formErrors = {
+    'author': '',
+    'rating': '',
+    'comment': ''
+  };
+
+  validationMessages = {
+    'author': {
+      'required': 'Author is required.',
+      'minlength': 'Author must be at least 2 characters long.',
+      'maxlength': 'FirstName cannot be more than 25 characters long.'
+    },
+    'comment': {
+      'required': 'Comment is required.'
+    }
+  }
+
 
   constructor(private dishservice: DishService,
     private route: ActivatedRoute,

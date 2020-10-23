@@ -43,6 +43,36 @@
         </p>
       </mat-list-item>
     </mat-list>
+    <mat-list>
+
+      <form novalidate >
+      <p>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="Name"
+            type="text"
+          />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="full-width">
+          <mat-slider></mat-slider>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="full-width">
+          <textarea
+            matInput
+            formControlName="comment"
+            placeholder="Your comment"
+            rows="12"
+          ></textarea>
+        </mat-form-field>
+      </p>
+      </form>
+    </mat-list>
+
   </div>
 
   <div [hidden]="dish">
